@@ -2,7 +2,11 @@
 #include <time.h>
 #include <stdio.h>
 /* more headers goes there */
-
+/**
+ * main - entry point
+ *
+ * Return: positive, negative or equal
+ */
 /* betty style doc for function main goes there */
 int main(void)
 {
