@@ -9,8 +9,7 @@
 int main(void)
 {
 	int a = '0';
-	char *c = ",";
-	char *ch = " ";
+	char *c = ", ";
 
 	for (a = '0'; a <= '9'; a++)
 	{
@@ -21,7 +20,7 @@ int main(void)
 		else
 		{
 			putchar(a);
-			putchar(*c, *ch);
+			putchar(*c);
 		}
 	}
 	putchar('\n');
