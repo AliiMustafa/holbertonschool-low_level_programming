@@ -9,18 +9,20 @@
 int main(void)
 {
 	int a = '0';
-	char *c = ", ";
+	char *c = ",";
+	char *ch = " ";
 
 	for (a = '0'; a <= '9'; a++)
 	{
+		putchar(a);
 		if (a == '9')
 		{
-			putchar(a);
+			continue;
 		}
 		else
 		{
-			putchar(a);
 			putchar(*c);
+			putchar(*ch);
 		}
 	}
 	putchar('\n');
