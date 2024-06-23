@@ -1,13 +1,20 @@
 #include "main.h"
-
 /**
- * main - check the code
+ * main - entry point
  *
- * Return: Always 0.
+ * Description : "print_alphabet" print alphabet in order
+ *
+ **
+ *Return : Always 0
  */
-int main(void)
+void print_alphabet(void)
 {
-    print_alphabet();
-    return (0);
-}
+	char ch = 'a';
 
+	for (ch = 'a'; ch <= 'z'; ch++)
+	{
+		_putchar(ch);
+	}
+
+	_putchar('\n');
+}
