@@ -21,9 +21,7 @@ int main(void)
 		else
 		{
 			putchar(a);
-			putchar(*c);
-			putchar(*ch);
-	
+			putchar(*c, *ch);
 		}
 	}
 	putchar('\n');
