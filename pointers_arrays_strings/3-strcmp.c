@@ -25,10 +25,10 @@ int _strcmp(char *s1, char *s2)
 	}
 	else if (n > m)
 	{
-		return (13);
+		return (-13);
 	}
 	else
 	{
-		return (-13);
+		return (13);
 	}
 }
