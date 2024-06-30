@@ -21,6 +21,7 @@ void puts_half(char *str)
 	else
 	{
 		n = (m - 1) / 2;
+		n = m - n;
 	}
 	while (*(str + n) != 0)
 	{
