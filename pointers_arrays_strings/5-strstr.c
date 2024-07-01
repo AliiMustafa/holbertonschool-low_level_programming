@@ -11,27 +11,27 @@ char *_strstr(char *haystack, char *needle)
 	int i = 0;
 	int count = 0;
 	int b = 0;
-	int c = 0;
 
-	while (*(haystack + b) != 0)
-	{
-		b++;
-	}
 	while (*(needle + count) != 0)
 	{
 		count++;
 	}
-	for (i = 0; i < count; i++)
+	while (*(haystack + b) != 0)
 	{
-		for (c = 0;  c < b; c++)
+		i = 0;
+		while ((*(needle + i) == *(haystack + i + b)) && (i < count))
 		{
-			if (*(needle + i) == *(haystack + c))
+			if (i == b - 1)
 			{
-				return (haystack + c);
-	
+				return (haystack + b);
 			}
+			i++;
 		}
-
+		b++;
+	}
+	if (*needle == '\0')
+	{
+		return (haystack);
 	}
 	return (NULL);
 }
