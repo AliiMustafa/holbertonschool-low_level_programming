@@ -8,29 +8,20 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int count = 0;
-	int esas = (size + 1) * 4;
-	int esas1 = (size + 1) * 2;
+	int i;
 	int sum1 = 0;
 	int sum2 = 0;
 	int *p = a;
-
-	while (count < size)
+	for (i = 0; i < size * size;)
 	{
-		sum1 = sum1 + *p;
-		*p = *(p + esas);
-		count++;
+		sum1 = sum1 + p[i];
+		i = i + (size + 1);
 	}
-	p = a + ((size - 1) * 4);
-	count = 0;
-	while (count < size)
+	i = size - 1;
+	for (; i < size * size - 2;)
 	{
-		sum2 = sum2 + *p;
-		*p = *(p + esas1);
-		count++;
+		sum2 = sum2 + p[i];
+		i = i + (size - 1);
 	}
-	printf("%d, %d", sum1, sum2);
-	printf("\n");
-
-				
+	printf("%d, %d\n", sum1, sum2);
 }
