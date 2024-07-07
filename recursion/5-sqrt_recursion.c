@@ -19,8 +19,8 @@ int root_find(int r, int number)
 	return (root_find((r + 1), number));
 }
 
-	
-	
+
+
 /**
  *_sqrt_recursion - main
  *@n: variable
