@@ -11,9 +11,9 @@
  */
 int main(int argc, char *argv[])
 {
-        int i;
-        long unsigned int j;
-        int p = 0;
+	int i;
+	long unsigned int j;
+	int p = 0;
 
 	if (argc == 1)
 	{
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{
 		for (j = 0; j < (strlen(argv[i])); j++)
 		{
-			if (isdigit(*(argv[i] + j) == 0))
+			if (isdigit(*(argv[i] + j)) == 0)
 			{
 				printf("Error\n");
 				return (1);
