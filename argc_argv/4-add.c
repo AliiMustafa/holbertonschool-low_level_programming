@@ -22,6 +22,10 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1; i < argc; i++)
 	{
+		if (atoi(argv[i]) < 0)
+		{
+			continue;
+		}
 		for (j = 0; j < (strlen(argv[i])); j++)
 		{
 			if (isdigit(*(argv[i] + j)) == 0)
@@ -29,10 +33,6 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);
 			}
-		}
-		if (atoi(argv[i]) < 0)
-		{
-			continue;
 		}
 		p = p + atoi(argv[i]);
 	}
