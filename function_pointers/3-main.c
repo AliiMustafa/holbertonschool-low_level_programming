@@ -2,9 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - entry point
+ * @argc: varaible
+ * @argv: pointer
+ * Return: always 0
 int main(int argc, char *argv[])
 {
-	if (argc > 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
