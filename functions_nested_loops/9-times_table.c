@@ -4,45 +4,33 @@
  * times_table - function
  * Return: table
  */
+
 void times_table(void)
 {
-	int i, j, result, tam, kesr;
-	char *v = ",";
-	char *b = " ";
-
-	for (i = 0; i <= 9; i++)
+	int  number, i, n;
+	number = 0;
+	while (number <= 9)
 	{
-		for (j = 0; j <= 9; j++)
+		_putchar('0');
+		i = number;
+		for (n = 0; n < 9; n++)
 		{
-			if (j == 9)
+			_putchar(',');
+			if (i < 10)
 			{
-				result = i * j;
-				tam = result / 10;
-				kesr = result % 10;
-				if (tam == 0)
-				{
-					_putchar('0' + kesr), _putchar('\n');
-				}
-				else
-				{
-					_putchar('0' + tam), _putchar('0' + kesr), _putchar('\n');
-				}
+			_putchar(' ');
+			_putchar(' ');
+			_putchar(i + '0');
 			}
 			else
 			{
-				result = i * j;
-				tam = result / 10;
-				kesr = result % 10;
-				if (tam == 0)
-				{
-					_putchar('0' + kesr), _putchar(*v), _putchar(*b), _putchar(*b);
-				}
-				else
-				{
-					_putchar('0' + tam), _putchar('0' + kesr);
-					_putchar(*v), _putchar(*b);
-				}
+			_putchar(' ');
+			_putchar((i / 10) + '0');
+			_putchar((i % 10) + '0');
 			}
+			i = i + number;
 		}
+		_putchar('\n');
+		number++;
 	}
 }
