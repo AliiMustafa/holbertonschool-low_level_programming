@@ -3,26 +3,24 @@
 #include <stdio.h>
 #include <stddef.h>
 /**
- * print_strings - function
- * @n: variable
- * @separator: pointer
- * Return: prints strings with separator
+ * print_all - function
+ * @format: pointer
+ * Return: prints anything with separator
  */
 void print_all(const char * const format, ...)
 {
 	va_list arr;
 	int i = 0, j = 0;
 	char *str;
-	
-	va_start(arr, format);
 
+	va_start(arr, format);
 	if (format)
 	{
-		while(format[i])
+		while (format[i])
 		{
 			j = 1;
 			i++;
-			switch(format[i - 1])
+			switch (format[i - 1])
 			{
 				case 'c':
 					printf("%c", va_arg(arr, int));
@@ -46,12 +44,9 @@ void print_all(const char * const format, ...)
 			}
 			while (j && format[i])
 			{
-				printf(", ");
-				j = 0;
+				printf(", "), j = 0;
 			}
 		}
 	}
-	printf("\n");
-	va_end(arr);
 }
 
