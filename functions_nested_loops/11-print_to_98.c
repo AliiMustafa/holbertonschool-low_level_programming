@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 
+/**
+ * print_to_98 - function
+ * @n: variable
+ * Return: prints to 98
+ */
 void print_to_98(int n)
 {
 	int i;
