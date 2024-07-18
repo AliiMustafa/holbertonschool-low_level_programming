@@ -20,12 +20,11 @@ void times_table(void)
 				tam = result / 10;
 				kesr = result % 10;
 				if (tam == 0)
-				{	_putchar(*b), _putchar(*b);
+				{
 					_putchar('0' + kesr), _putchar('\n');
 				}
 				else
 				{
-					_putchar(*b);
 					_putchar('0' + tam), _putchar('0' + kesr), _putchar('\n');
 				}
 			}
@@ -36,12 +35,10 @@ void times_table(void)
 				kesr = result % 10;
 				if (tam == 0)
 				{
-					_putchar(*b), _putchar(*b);
-					_putchar('0' + kesr), _putchar(*v), _putchar(*b);
+					_putchar('0' + kesr), _putchar(*v), _putchar(*b), _putchar(*b);
 				}
 				else
 				{
-					_putchar(*b);
 					_putchar('0' + tam), _putchar('0' + kesr);
 					_putchar(*v), _putchar(*b);
 				}
