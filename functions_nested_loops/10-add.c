@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- *int_add - function
+ *add - function
  *@a: variable
  *@b: variable
- *Retrun: sum
- *Retrun: 0
+ *Return: sum
  */
 
 int add(int a, int b)
