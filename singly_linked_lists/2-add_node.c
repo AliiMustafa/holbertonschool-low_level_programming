@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * add_note - pointer to list_h
+ * add_node - pointer to list_h
  * @head: double pointer
  * @str: pointer
  * Return: pointer to list_t
