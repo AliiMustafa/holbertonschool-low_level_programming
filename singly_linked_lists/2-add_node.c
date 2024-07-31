@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * add_note - function
+ * add_note - pointer to list_h
  * @head: double pointer
+ * @str: pointer
  * Return: pointer to list_t
  */
 
