@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * sum_dnodeint - function
+ * sum_dlistint - function
  * @head: pointer
  * Return: 0
  */
