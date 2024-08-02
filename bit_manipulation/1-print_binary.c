@@ -7,11 +7,15 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int p = 1;
+	unsigned long int p = 1;
 
 	while (n >= p * 2)
 	{
 		p = p * 2;
+		if (p == (ULONG_MAX >> 1) + 1)
+		{
+			break;
+		}
 	}
 	while (p)
 	{
