@@ -29,9 +29,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	Read = read(fd, b, letters);
 	close(fd);
+	if (Read == -1)
+	{
+		free(b);
+		return (0);
+	}
 	Write = write(1, b, letters);
 	free(b);
-	if (Read == -1 || Read != Write)
+	if (Write == -1 || Read != Write)
 	{
 		return (0);
 	}
