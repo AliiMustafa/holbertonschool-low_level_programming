@@ -1,4 +1,6 @@
 #include "main.h"
+void print_error_and_exit(const char *message, int code);
+void copy_file(const char *file_from, const char *file_to);
 
 void print_error_and_exit(const char *message, int code)
 {
