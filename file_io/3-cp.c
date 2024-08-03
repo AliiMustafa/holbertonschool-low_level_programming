@@ -22,10 +22,12 @@ int main(int argc, char **argv)
 	while (red > 0)
 	{
 		if (rfile < 0 || red < 0)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), free(buffer), exit(98);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			argv[1]), free(buffer), exit(98);
 		wed = write(wfile, buffer, red);
 		if (wfile < 0 || wed < 0)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), free(buffer), exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n",
+			argv[2]), free(buffer), exit(99);
 		red = read(rfile, buffer, 1024);
 		wfile = open(argv[2], O_WRONLY | O_APPEND);
 	}
