@@ -1,70 +1,40 @@
 #include "main.h"
-void print_error_and_exit(const char *message, int code);
-void copy_file(const char *file_from, const char *file_to);
-
-void print_error_and_exit(const char *message, int code)
+/**
+  * main - entry point
+  * @ac: argument count
+  * @av: array of argument tokens
+  * Return: 0 on success
+  */
+int main(int ac, char *av[])
 {
-    dprintf(STDERR_FILENO, "%s\n", message);
-    exit(code);
+	int fd_from, fd_to, rd_stat, wr_stat;
+	mode_t perm = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	char buffer[1024];
+
+	if (ac != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+	fd_from = open(av[1], O_RDONLY);
+	if (fd_from == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
+	fd_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, perm);
+	if (fd_to == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+	rd_stat = 1;
+	while (rd_stat)
+	{
+		rd_stat = read(fd_from, buffer, 1024);
+		if (rd_stat == -1)
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
+		if (rd_stat > 0)
+		{
+			wr_stat = write(fd_to, buffer, rd_stat);
+			if (wr_stat != rd_stat || wr_stat == -1)
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+		}
+	}
+	if (close(fd_from) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from), exit(100);
+	if (close(fd_to) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to), exit(100);
+	return (0);
 }
-
-void copy_file(const char *file_from, const char *file_to)
-{
-    int fd_from, fd_to;
-    ssize_t read_bytes, write_bytes;
-    char buffer[1024];
-
-    fd_from = open(file_from, O_RDONLY);
-    if (fd_from == -1)
-    {
-        print_error_and_exit("Error: Can't read from file", 98);
-    }
-
-    fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-    if (fd_to == -1)
-    {
-        close(fd_from);
-        print_error_and_exit("Error: Can't write to file", 99);
-    }
-
-    while ((read_bytes = read(fd_from, buffer, 1024)) > 0)
-    {
-        write_bytes = write(fd_to, buffer, read_bytes);
-        if (write_bytes != read_bytes)
-        {
-            close(fd_from);
-            close(fd_to);
-            print_error_and_exit("Error: Can't write to file", 99);
-        }
-    }
-
-    if (read_bytes == -1)
-    {
-        close(fd_from);
-        close(fd_to);
-        print_error_and_exit("Error: Can't read from file", 98);
-    }
-
-    if (close(fd_from) == -1)
-    {
-        print_error_and_exit("Error: Can't close fd", 100);
-    }
-
-    if (close(fd_to) == -1)
-    {
-        print_error_and_exit("Error: Can't close fd", 100);
-    }
-}
-
-int main(int argc, char *argv[])
-{
-    if (argc != 3)
-    {
-        print_error_and_exit("Usage: cp file_from file_to", 97);
-    }
-
-    copy_file(argv[1], argv[2]);
-
-    return 0;
-}
-
