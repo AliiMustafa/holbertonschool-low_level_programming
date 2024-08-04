@@ -9,7 +9,7 @@ int main(int ac, char *av[])
 {
 	int fd_from, fd_to;
 	ssize_t rd_stat, wr_stat;
-	mode_t perm = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
+	unsigned int perm = S_IRUSR | S_IWUSR | S_IWGRP | S_IRGRP | S_IROTH;
 	char *buffer;
 
 	if (ac != 3)
